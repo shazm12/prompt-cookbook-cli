@@ -3,6 +3,7 @@ import click
 from utils import get_prompt_by_type
 from rich.console import Console
 from rich.table import Table
+from rich.text import Text
 from rich import box
 
 console = Console()
@@ -24,7 +25,12 @@ def cli():
 @click.option("--input", "-i", default="", help="The input you want to perform")
 @click.option("--model", "-m", default="gpt-3.5-turbo", required=False, help="The model you want to use")
 def run(task, type, input, model):    
-    console.print(f"Running [bold]{task} with [bold]{model} model...")
+    title = Text("Prompt Cookbook", style="bold magenta")
+    console.print(title, justify="center")
+    console.print()
+    
+    console.print(f"Running [bold blue]{task}[/bold blue] with [bold green]{model}[/bold green] model...")
+    
     prompt = get_prompt_by_type(task, type)
     prompt["prompt"] = prompt["prompt"].format(input=input)
     table.add_row(prompt["name"], prompt["type"], prompt["prompt"])
