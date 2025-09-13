@@ -1,0 +1,13 @@
+[
+    {
+        "name": "coding",
+        "type": "python-function",
+        "prompt": "You are an expert Python developer. Implement a function in Python that takes a large dataset of user click logs (URL, timestamp, user_id) and returns the top 10 most visited URLs. The solution should be optimized for memory efficiency, use built-in libraries where possible, and include time complexity analysis. Provide clean, production-ready code with inline comments."
+    },
+    {
+        "name": "coding",
+        "type": "code-review",
+        "prompt": "You are an expert Typescript Developer, review this code for performance and readability. Please look deeply into how the code could be optimized for better time and space complexity. Check if the implmentation following some of the best industry practises for code architecture and patterns. Please provide suggestions as inline comments with clean , production-ready code."
+    }
+    
+]

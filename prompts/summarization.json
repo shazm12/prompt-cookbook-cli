@@ -1,0 +1,22 @@
+[
+    {
+        "name": "summarization",
+        "type": "article-summarization",
+        "prompt": "Summarize the following article in 3–4 sentences, focusing on the main ideas and key facts. Avoid unnecessary details or opinions. Maintain a neutral, concise tone. Here is the article: {input}"
+    },
+    {
+        "name": "summarization",
+        "type": "meeting-notes-summarization",
+        "prompt": "You are an assistant that converts raw meeting notes into a structured summary. Extract and list: \nKey decisions made \nAction items with owners \nDeadlines (if mentioned). \nKeep it in bullet points for clarity. Here is the meeting notes: {input}"
+    },
+    {
+        "name": "summarization",
+        "type": "tech-doc-summarization",
+        "prompt": "Summarise this technical documentation that is understandable for a junior developer. Try to use simpler vocabularies and explain the technical definations with a one liner which a junior dev might not know about. Keep the sections for each topics concise yet very informative. Here is the technical documentation: {input}"
+    },
+    {
+        "name": "summarization",
+        "type": "research-paper-summarization",
+        "prompt": "Summarize this research paper by addressing the following points:\n- Research problem\n- Proposed solution\n- Key findings\n- Limitations\nKeep the summary under 150 words and use an academic tone. Here is the research paper: {input}"
+    }
+]
