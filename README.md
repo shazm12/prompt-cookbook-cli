@@ -1,4 +1,4 @@
-# Prompt Cookbook
+# Prompt Cookbook CLI
 
 A CLI tool for running and managing AI prompts across different tasks and models. It offers a collection of pre-built prompts, curated from various sources and tested for common tasks such as summarization and coding. The tool supports multiple AI providers, including OpenAI and Groq.
 
