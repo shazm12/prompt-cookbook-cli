@@ -82,6 +82,10 @@ python cli.py list-models
 python cli.py list-models --provider openai
 ```
 
+### Contributions
+
+All contributions for the project are welcomed. To get started, please refer to the [Contribution Guidelines](./CONTRIBUTING.md).
+
 ### Project Structure
 
 ```
