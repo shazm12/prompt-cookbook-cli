@@ -9,7 +9,7 @@ A CLI tool for running and managing AI prompts across different tasks and models
 - **Task Management**: Organize prompts by task type (summarization, coding)
 - **Logging**: Track prompt runs with performance metrics and results
 - **CLI Interface**: Easy-to-use command-line interface with rich output
-  # Future scope
+  ### Future scope
   - **Prompt-Engineering** : Implement prompt engineering techniques like single-shot, meta prompting.
 
 ## Available Tasks
