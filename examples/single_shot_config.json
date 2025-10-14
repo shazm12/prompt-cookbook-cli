@@ -1,0 +1,6 @@
+{
+  "task_description": "Translate English text to French",
+  "example_input": "Hello, how are you?",
+  "example_output": "Bonjour, comment allez-vous?",
+  "actual_input": "Good morning, have a great day!"
+}
