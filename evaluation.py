@@ -108,27 +108,48 @@ class EvaluationMetrics:
     @staticmethod
     def calculate_length_metrics(candidate: str, reference: str) -> Dict[str, Any]:
         """
-        Calculate length-based metrics.
+        Calculate length-based metrics with quality penalties.
+        
+        Note: Length metrics alone are weak indicators of quality.
+        They should be used as sanity checks alongside semantic metrics
+        like BLEU score and word overlap.
 
         Args:
             candidate: Generated output text
             reference: Reference/expected text
 
         Returns:
-            Dictionary with length metrics
+            Dictionary with length metrics including deviation penalty
         """
         candidate_words = candidate.split()
         reference_words = reference.split()
+        
+        length_ratio = (
+            len(candidate_words) / len(reference_words)
+            if reference_words
+            else 0.0
+        )
+        
+        # Calculate length deviation penalty
+        # Penalize outputs that are too short (<50%) or too long (>200%)
+        if length_ratio < 0.5:
+            length_score = length_ratio * 2  # Scale 0-0.5 to 0-1
+        elif length_ratio > 2.0:
+            length_score = max(0.0, 1.0 - (length_ratio - 2.0) / 2.0)  # Penalize excess
+        else:
+            length_score = 1.0  # Acceptable range
 
         return {
             "candidate_length": len(candidate_words),
             "reference_length": len(reference_words),
-            "length_ratio": (
-                len(candidate_words) / len(reference_words)
-                if reference_words
-                else 0.0
-            ),
+            "length_ratio": length_ratio,
             "length_difference": abs(len(candidate_words) - len(reference_words)),
+            "length_score": round(length_score, 4),  # 0-1 score based on deviation
+            "length_quality": (
+                "too_short" if length_ratio < 0.5
+                else "too_long" if length_ratio > 2.0
+                else "acceptable"
+            ),
         }
 
     @staticmethod
@@ -340,6 +361,8 @@ def generate_evaluation_report(
                 f"  - Candidate: {length['candidate_length']} words",
                 f"  - Reference: {length['reference_length']} words",
                 f"  - Ratio: {length['length_ratio']:.2f}",
+                f"  - Length Score: {length['length_score']:.4f}",
+                f"  - Quality: {length['length_quality']}",
             ]
         )
 

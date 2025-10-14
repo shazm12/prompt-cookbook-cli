@@ -186,7 +186,7 @@ def apply_technique(
             raise ValueError("Meta-prompting requires 'goal' parameter")
 
         prompt = techniques.meta_prompting(
-            goal=params["goal"],
+            goal=params.get("goal"),
             context=params.get("context"),
             constraints=params.get("constraints"),
             output_format=params.get("output_format"),
@@ -194,7 +194,7 @@ def apply_technique(
 
         metadata = {
             "technique": "meta-prompting",
-            "goal": params["goal"],
+            "goal": params.get("goal"),
             "has_context": "context" in params,
             "has_constraints": "constraints" in params,
         }
