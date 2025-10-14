@@ -1,0 +1,18 @@
+{
+  "task_description": "Classify customer feedback sentiment",
+  "examples": [
+    {
+      "input": "The product is amazing! Best purchase I've made this year.",
+      "output": "Positive"
+    },
+    {
+      "input": "Terrible quality, broke after one day. Very disappointed.",
+      "output": "Negative"
+    },
+    {
+      "input": "It's okay, nothing special but does the job.",
+      "output": "Neutral"
+    }
+  ],
+  "actual_input": "Great value for money, though shipping took longer than expected."
+}

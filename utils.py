@@ -124,3 +124,16 @@ def log_prompt_run(prompt_log):
     except Exception as e:
         status = "error"
         return status, e
+
+
+def log_prompt_engineering_run(prompt_log):
+    """Log prompt engineering experiment runs"""
+    status = "success"
+    try:
+        os.makedirs("logs", exist_ok=True)
+        with open("logs/prompt_engineering_runs.jsonl", "a", encoding="utf-8") as f:
+            f.write(prompt_log.model_dump_json() + "\n")
+        return status, "Prompt engineering run logged successfully"
+    except Exception as e:
+        status = "error"
+        return status, str(e)
