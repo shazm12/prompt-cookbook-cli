@@ -1,0 +1,6 @@
+{
+  "goal": "Create a prompt for summarizing technical documentation",
+  "context": "The summaries should be understandable by junior developers with less than 1 year of experience",
+  "constraints": "Keep summaries under 200 words, use simple language, avoid jargon",
+  "output_format": "Bullet points with clear sections: Overview, Key Concepts, Usage Examples"
+}
